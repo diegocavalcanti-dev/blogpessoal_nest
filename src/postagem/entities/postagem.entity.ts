@@ -1,7 +1,9 @@
 import { IsNotEmpty } from 'class-validator';
+import { Tema } from 'src/tema/entities/tema.entity';
 import {
   Column,
   Entity,
+  ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -21,4 +23,9 @@ export class Postagem {
 
   @UpdateDateColumn()
   data: Date;
+
+  @ManyToOne(() => Tema, (tema) => tema.postagem, {
+    onDelete: 'CASCADE',
+  })
+  tema: Tema;
 }
