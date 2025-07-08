@@ -50,7 +50,7 @@ export class TemaController {
   @Put()
   @HttpCode(HttpStatus.OK)
   update(@Body() tema: Tema): Promise<Tema> {
-    return this.temaService.create(tema);
+    return this.temaService.update(tema);
   }
 
   @Delete('/:id')
